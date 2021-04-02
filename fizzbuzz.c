@@ -1,32 +1,23 @@
 #include <stdio.h>
+#include <stdbool.h>
 
-int mult3(int i){
-    if(i%3==0){
-        return 1;
-    }
-    else{
-        return 0;
-    }
+bool mult3(int i){
+    return i%3==0;
 }
 
-int mult5(int i){
-    if(i%5==0){
-        return 1;
-    }
-    else{
-        return 0;
-    }
+bool mult5(int i){
+    return i%5==0;
 }
 
 int main(){
     for(int i=1;i<=100;i++){
-        if(mult3(i)==1&&mult5(i)==0){
+        if(mult3(i)&&!mult5(i)){
             printf("Fizz\n");
         }
-        else if(mult5(i)==1&&mult3(i)==0){
+        else if(mult5(i)&&!mult3(i)){
             printf("Buzz\n");
         }
-        else if(mult5(i)==1&&mult3(i)==1){
+        else if(mult5(i)&&mult3(i)){
             printf("FizzBuzz\n");
         }
         else{
